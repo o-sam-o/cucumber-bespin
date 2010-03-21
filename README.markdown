@@ -8,19 +8,25 @@
 2. Place the Gherkin.js file into the plugins/labs directory.  
 3. In the Bespin root directory create a gherkin.json file which contains the following text:
 
-	{
-	    "output_dir": "tmp",
-	    "plugins": ["Embedded", "Gherkin"],
-	    "include_sample": true
-	}
+~~~
+{
+    "output_dir": "tmp",
+    "plugins": ["Embedded", "Gherkin"],
+    "include_sample": true
+}
+~~~
 
 4. Run 'python dryice.py gherkin.json' in the Bespin root dir
 5. Edit the tmp/sample/sample.html and change the following html:
 
-	<div id="editor" class="bespin" data-bespinoptions='{ "settings": { "tabstop": 4 }, "syntax": "js", "stealFocus": true }'>
+~~~
+<div id="editor" class="bespin" data-bespinoptions='{ "settings": { "tabstop": 4 }, "syntax": "js", "stealFocus": true }'>
+~~~
 
 to
 
-	<div id="editor" class="bespin" data-bespinoptions='{ "settings": { "tabstop": 4 }, "syntax": "gh", "stealFocus": true }'>
+~~~
+<div id="editor" class="bespin" data-bespinoptions='{ "settings": { "tabstop": 4 }, "syntax": "gh", "stealFocus": true }'>
+~~~
 
 6. Open the sample.html file in Firefox and you should see syntax highlighting for Gherkin formatted text
