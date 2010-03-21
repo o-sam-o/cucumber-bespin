@@ -1,0 +1,89 @@
+<!-- ***** BEGIN LICENSE BLOCK *****
+- Version: MPL 1.1/GPL 2.0/LGPL 2.1
+-
+- The contents of this file are subject to the Mozilla Public License Version
+- 1.1 (the "License"); you may not use this file except in compliance with
+- the License. You may obtain a copy of the License at
+- http://www.mozilla.org/MPL/
+-
+- Software distributed under the License is distributed on an "AS IS" basis,
+- WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+- for the specific language governing rights and limitations under the
+- License.
+-
+- The Original Code is Bespin.
+-
+- The Initial Developer of the Original Code is
+- Mozilla.
+- Portions created by the Initial Developer are Copyright (C) 2009
+- the Initial Developer. All Rights Reserved.
+-
+- Contributor(s):
+-
+- Alternatively, the contents of this file may be used under the terms of
+- either the GNU General Public License Version 2 or later (the "GPL"), or
+- the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+- in which case the provisions of the GPL or the LGPL are applicable instead
+- of those above. If you wish to allow use of your version of this file only
+- under the terms of either the GPL or the LGPL, and not to allow others to
+- use your version of this file under the terms of the MPL, indicate your
+- decision by deleting the provisions above and replace them with the notice
+- and other provisions required by the GPL or the LGPL. If you do not delete
+- the provisions above, a recipient may use your version of this file under
+- the terms of any one of the MPL, the GPL or the LGPL.
+-
+- ***** END LICENSE BLOCK ***** -->
+
+<!DOCTYPE html>
+<html><head>
+
+<link href="BespinEmbedded.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../Gherkin.js"></script>
+<script type="text/javascript" src="BespinEmbedded.js"></script>
+
+<style>
+  body { padding: 20px; font-family: Calibri, Helvetica, Arial; }
+  h1 { border-bottom: 1px solid #ddd; font-size:120%; }
+  .bespin { margin: 0; padding: 0; border: 0; height: 600px; border: 10px solid #ddd; -moz-border-radius: 10px; -webkit-border-radius: 10px; }
+  .displaybutton { margin-top: 1em; }
+</style>
+<script>
+window.onBespinLoad = function() {
+    console.log("this is called when Bespin is loaded");
+    window.bespin = document.getElementById("editor").bespin;
+};
+</script>
+</head>
+<body>
+
+<h1>Sample Feature Editor</h1>
+<div id="editor" class="bespin" data-bespinoptions='{ "settings": { "tabstop": 4 }, "syntax": "gh", "stealFocus": true }'>Feature: Cucumber syntax highlighter
+  In order to view and edit feature files
+  developers and BA's
+  want a syntax highlighting text editor
+
+  # This is an example of a comment
+  Background: Setup stuff
+  	Given the following projects:
+      |name|description|
+      |project 1|project description 1|
+   And the following themes:
+      |name|description|project|
+      |theme 1|theme description|project 1|
+
+  @wip
+  Scenario: View a feature
+    Given the following features:
+      |name|content|theme|
+      |feature 1|feature content here|theme 1|
+    When I view the feature "feature 1" page
+    Then I should see keywords highlighted (e.g. Scenario, Given, When or Then) if they begin a line
+    And I should see strings in single (e.g. 'this text') or double (e.g. "this text") quotes highlighted
+    And I should see numbers e.g. 1 or 1st highlighted
+    But I shouldn't see highlighting when a word contains a single apostrophe
+
+</div>
+<p style="font-weight: bold">Note: This example is based on Bespin 0.6.2, which doesn't seem to work in Chrome, please test is Firefox or Safari</p>
+<p><a href="https://bespin.mozillalabs.com/docs/">Documentation for the latest Bespin release</a> is on the web and included in Bespin Embedded packages.</p>
+</body>
+</html>
