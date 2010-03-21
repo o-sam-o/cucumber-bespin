@@ -5,7 +5,9 @@
 
 ## How To Use ##
 1, Download the latest Customizable version of Bespin editor (note: this plugin was developed against 0.6.2). 
+
 2, Place the Gherkin.js file into the plugins/labs directory.  
+
 3, In the Bespin root directory create a gherkin.json file which contains the following text:
 
 	{
@@ -15,6 +17,7 @@
 	}
 
 4, Run 'python dryice.py gherkin.json' in the Bespin root dir
+
 5, Edit the tmp/sample/sample.html and change the following html:
 
 	<div id="editor" class="bespin" data-bespinoptions='{ "settings": { "tabstop": 4 }, "syntax": "js", "stealFocus": true }'>
